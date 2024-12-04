@@ -69,7 +69,7 @@ func NewExtendedAwsProvider() *ExtendedGcpProvider {
 	baseProvider := deploytf.NewNitricGcpProvider()
 
 	return &ExtendedGcpProvider{
-		Apis:                       make(map[string]*extapi.Extapi),
+		Apis:                       make(map[string]extapi.Extapi),
 		NitricGcpTerraformProvider: *baseProvider,
 	}
 }

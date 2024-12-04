@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/nitrictech/nitric/cloud/aws/runtime"
-	"github.com/nitrictech/nitric/cloud/aws/runtime/resource"
+	"github.com/nitrictech/nitric/cloud/gcp/runtime"
+	"github.com/nitrictech/nitric/cloud/gcp/runtime/resource"
 	"github.com/nitrictech/nitric/core/pkg/logger"
 	"github.com/nitrictech/nitric/core/pkg/server"
 )
@@ -14,7 +14,7 @@ func main() {
 		return
 	}
 
-	m, err := runtime.NewAwsRuntimeServer(resolver)
+	m, err := runtime.NewGcpRuntimeServer(resolver)
 	if err != nil {
 		logger.Fatalf("there was an error initializing the AWS runtime server: %v", err)
 	}
