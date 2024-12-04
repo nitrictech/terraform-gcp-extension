@@ -40,12 +40,13 @@ var nitricOverrides embed.FS
 
 // TODO: Need to update this extension so we can merge the modules directory with the base provider
 func (a *ExtendedGcpProvider) CdkTfModules() ([]provider.ModuleDirectory, error) {
+	// Get the original modules from the provider we're extending
 	origModules, err := a.NitricGcpTerraformProvider.CdkTfModules()
 	if err != nil {
 		return nil, err
 	}
 
-	// Merge the original modules with the embedded modules
+	// Merge the original modules with our new modules
 	mergedModules := append(origModules, provider.ModuleDirectory{
 		ParentDir: ".ext/modules",
 		Modules:   modules,
