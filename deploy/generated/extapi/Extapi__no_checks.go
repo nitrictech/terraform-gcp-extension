@@ -32,22 +32,6 @@ func validateExtapi_IsTerraformElementParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_Extapi) validateSetNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_Extapi) validateSetOpenapiSpecParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_Extapi) validateSetStackIdParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_Extapi) validateSetTargetServicesParameters(val *map[string]*string) error {
-	return nil
-}
-
 func validateNewExtapiParameters(scope constructs.Construct, id *string, config *ExtapiConfig) error {
 	return nil
 }

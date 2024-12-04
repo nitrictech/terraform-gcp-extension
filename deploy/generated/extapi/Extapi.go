@@ -22,7 +22,6 @@ type Extapi interface {
 	DependsOn() *[]*string
 	// Experimental.
 	SetDependsOn(val *[]*string)
-	EndpointOutput() *string
 	// Experimental.
 	ForEach() cdktf.ITerraformIterator
 	// Experimental.
@@ -31,12 +30,8 @@ type Extapi interface {
 	Fqn() *string
 	// Experimental.
 	FriendlyUniqueId() *string
-	Name() *string
-	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	OpenapiSpec() *string
-	SetOpenapiSpec(val *string)
 	// Experimental.
 	Providers() *[]interface{}
 	// Experimental.
@@ -45,10 +40,6 @@ type Extapi interface {
 	SkipAssetCreationFromLocalModules() *bool
 	// Experimental.
 	Source() *string
-	StackId() *string
-	SetStackId(val *string)
-	TargetServices() *map[string]*string
-	SetTargetServices(val *map[string]*string)
 	// Experimental.
 	Version() *string
 	// Experimental.
@@ -112,16 +103,6 @@ func (j *jsiiProxy_Extapi) DependsOn() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_Extapi) EndpointOutput() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"endpointOutput",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_Extapi) ForEach() cdktf.ITerraformIterator {
 	var returns cdktf.ITerraformIterator
 	_jsii_.Get(
@@ -152,31 +133,11 @@ func (j *jsiiProxy_Extapi) FriendlyUniqueId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Extapi) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_Extapi) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Extapi) OpenapiSpec() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"openapiSpec",
 		&returns,
 	)
 	return returns
@@ -217,26 +178,6 @@ func (j *jsiiProxy_Extapi) Source() *string {
 	_jsii_.Get(
 		j,
 		"source",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Extapi) StackId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"stackId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Extapi) TargetServices() *map[string]*string {
-	var returns *map[string]*string
-	_jsii_.Get(
-		j,
-		"targetServices",
 		&returns,
 	)
 	return returns
@@ -292,50 +233,6 @@ func (j *jsiiProxy_Extapi)SetForEach(val cdktf.ITerraformIterator) {
 	_jsii_.Set(
 		j,
 		"forEach",
-		val,
-	)
-}
-
-func (j *jsiiProxy_Extapi)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"name",
-		val,
-	)
-}
-
-func (j *jsiiProxy_Extapi)SetOpenapiSpec(val *string) {
-	if err := j.validateSetOpenapiSpecParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"openapiSpec",
-		val,
-	)
-}
-
-func (j *jsiiProxy_Extapi)SetStackId(val *string) {
-	if err := j.validateSetStackIdParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"stackId",
-		val,
-	)
-}
-
-func (j *jsiiProxy_Extapi)SetTargetServices(val *map[string]*string) {
-	if err := j.validateSetTargetServicesParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"targetServices",
 		val,
 	)
 }

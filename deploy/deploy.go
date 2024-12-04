@@ -4,11 +4,8 @@ import (
 	"embed"
 	"io/fs"
 
-	"github.com/aws/jsii-runtime-go"
-	"github.com/hashicorp/terraform-cdk-go/cdktf"
 	"github.com/nitrictech/nitric/cloud/common/deploy/provider"
 	"github.com/nitrictech/nitric/cloud/gcp/deploytf"
-	deploymentspb "github.com/nitrictech/nitric/core/pkg/proto/deployments/v1"
 	"github.com/nitrictech/terraform-gcp-extension/deploy/generated/extapi"
 )
 
@@ -40,7 +37,7 @@ var modules embed.FS
 
 // TODO: Need to update this extension so we can merge the modules directory with the base provider
 func (a *ExtendedGcpProvider) CdkTfModules() ([]provider.ModuleDirectory, error) {
-	origModules, err := a.CdkTfModules()
+	origModules, err := a.NitricGcpTerraformProvider.CdkTfModules()
 	if err != nil {
 		return nil, err
 	}
@@ -52,17 +49,6 @@ func (a *ExtendedGcpProvider) CdkTfModules() ([]provider.ModuleDirectory, error)
 	})
 
 	return mergedModules, nil
-}
-
-func (e *ExtendedGcpProvider) Api(stack cdktf.TerraformStack, name string, config *deploymentspb.Api) error {
-
-	e.Apis[name] = extapi.NewExtapi(stack, jsii.String(name), &extapi.ExtapiConfig{})
-	// Replace the implementation of the `Api` method with your own logic
-
-	// May also need to extend the gateway plugin implementation to support the new API routing
-	// OR have the API routing conform to the base GCP gateway plugin
-
-	return nil
 }
 
 func NewExtendedGcpProvider() *ExtendedGcpProvider {
