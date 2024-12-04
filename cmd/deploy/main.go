@@ -7,7 +7,7 @@ import (
 	"github.com/nitrictech/terraform-gcp-extension/deploy"
 )
 
-//go:embed runtime-bin
+//go:embed runtime
 var runtimeBin []byte
 
 var runtimeProvider = func() []byte {
@@ -16,9 +16,9 @@ var runtimeProvider = func() []byte {
 
 // Start the deployment server
 func main() {
-	stack := deploy.NewExtendedAwsProvider()
+	stack := deploy.NewExtendedGcpProvider()
 
-	providerServer := provider.NewPulumiProviderServer(stack, runtimeProvider)
+	providerServer := provider.NewTerraformProviderServer(stack, runtimeProvider)
 
 	providerServer.Start()
 }

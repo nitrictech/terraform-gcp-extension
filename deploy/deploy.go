@@ -65,7 +65,7 @@ func (e *ExtendedGcpProvider) Api(stack cdktf.TerraformStack, name string, confi
 	return nil
 }
 
-func NewExtendedAwsProvider() *ExtendedGcpProvider {
+func NewExtendedGcpProvider() *ExtendedGcpProvider {
 	baseProvider := deploytf.NewNitricGcpProvider()
 
 	return &ExtendedGcpProvider{
