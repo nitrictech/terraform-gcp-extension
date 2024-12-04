@@ -13,7 +13,7 @@ deploybin: predeploybin
 	@echo Building GCP Deployment Server
 	@CGO_ENABLED=0 go build -o bin/deploy-gcp -ldflags="-s -w -extldflags=-static" -ldflags="-X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore" ./cmd/deploy
 
-install: deploybin
+install: generate-terraform deploybin
 	@echo installing deployment server to ${HOME}/.nitric/providers/nitric/gcptfext-0.0.1
 	@mkdir -p ${HOME}/.nitric/providers/nitric/
 	@if [ "$(OS)" == "Windows_NT" ]; then \

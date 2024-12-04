@@ -6,8 +6,8 @@ require (
 	github.com/aws/constructs-go/constructs/v10 v10.4.2
 	github.com/aws/jsii-runtime-go v1.105.0
 	github.com/hashicorp/terraform-cdk-go/cdktf v0.20.10
-	github.com/nitrictech/nitric/cloud/common v0.0.0-20241204004702-cbce1c96b942
-	github.com/nitrictech/nitric/cloud/gcp v0.0.0-20241204004702-cbce1c96b942
+	github.com/nitrictech/nitric/cloud/common v0.0.0-20241204231442-755a87b04e28
+	github.com/nitrictech/nitric/cloud/gcp v0.0.0-20241204231442-755a87b04e28
 	github.com/nitrictech/nitric/core v0.0.0-20241129022517-9c94563a4ff3
 )
 

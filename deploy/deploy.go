@@ -35,6 +35,9 @@ func (m mergedFS) Open(name string) (fs.File, error) {
 //go:embed .ext/modules/**/*
 var modules embed.FS
 
+//go:embed .nitric/modules/**/*
+var nitricOverrides embed.FS
+
 // TODO: Need to update this extension so we can merge the modules directory with the base provider
 func (a *ExtendedGcpProvider) CdkTfModules() ([]provider.ModuleDirectory, error) {
 	origModules, err := a.NitricGcpTerraformProvider.CdkTfModules()
@@ -46,6 +49,9 @@ func (a *ExtendedGcpProvider) CdkTfModules() ([]provider.ModuleDirectory, error)
 	mergedModules := append(origModules, provider.ModuleDirectory{
 		ParentDir: ".ext/modules",
 		Modules:   modules,
+	}, provider.ModuleDirectory{
+		ParentDir: ".nitric/modules",
+		Modules:   nitricOverrides,
 	})
 
 	return mergedModules, nil
