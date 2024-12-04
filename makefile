@@ -1,4 +1,4 @@
-inaries: deploybin
+binaries: deploybin
 
 # build runtime binary directly into the deploy director so it can be embedded directly into the deployment engine binary
 runtimebin:
