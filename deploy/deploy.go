@@ -47,7 +47,7 @@ func (a *ExtendedGcpProvider) CdkTfModules() ([]provider.ModuleDirectory, error)
 
 	// Merge the original modules with the embedded modules
 	mergedModules := append(origModules, provider.ModuleDirectory{
-		ParentDir: ".ext/modules/extapi",
+		ParentDir: ".ext/modules",
 		Modules:   modules,
 	})
 
