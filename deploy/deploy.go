@@ -2,7 +2,6 @@ package deploy
 
 import (
 	"embed"
-	"io/fs"
 
 	"github.com/nitrictech/nitric/cloud/common/deploy/provider"
 	"github.com/nitrictech/nitric/cloud/gcp/deploytf"
@@ -14,20 +13,6 @@ type ExtendedGcpProvider struct {
 
 	// Record deployed apis
 	Apis map[string]extapi.Extapi
-}
-
-type mergedFS struct {
-	fses []fs.FS
-}
-
-func (m mergedFS) Open(name string) (fs.File, error) {
-	for _, f := range m.fses {
-		file, err := f.Open(name)
-		if err == nil {
-			return file, nil
-		}
-	}
-	return nil, fs.ErrNotExist
 }
 
 // embed the modules directory here
