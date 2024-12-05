@@ -15,11 +15,16 @@ type ExtendedGcpProvider struct {
 	Apis map[string]extapi.Extapi
 }
 
-// embed the modules directory here
+// HCL modules located in this embed will be added to the base provider
+// These modules are provided as replacements for a module in the provider but do not need to match the original module implementation
+// Additional code will need to be written in order to create these modules e.g. overriding the original module method implementation e.g. Api or Bucket
 //
 //go:embed .ext/modules/**/*
 var modules embed.FS
 
+// HCL modules located in this embed will directly override the modules in the base provider
+// therefore these modules MUST implement the same variables and output as the equivalent module in the base provider
+//
 //go:embed .nitric/modules/**/*
 var nitricOverrides embed.FS
 
